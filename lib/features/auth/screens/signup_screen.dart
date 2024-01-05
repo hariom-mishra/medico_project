@@ -62,81 +62,98 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 Form(
+                    key: _signUpKey,
                     child: Column(
-                  children: [
-                    CustomTextField(hint: 'Name', controller: _nameController),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomDropDown(
-                        items: widget.genders,
-                        defaultItem: widget.genders[0],
-                        onUpdateValue: (String? val) {}),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomDropDown(
-                        items: widget.maritialStatus,
-                        defaultItem: widget.maritialStatus[0],
-                        onUpdateValue: (String? val) {}),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomTextField(
-                        hint: 'password', controller: _passwordController),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomTextField(
-                        hint: 'confirm password',
-                        controller: _confirmPasswordController),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomDropDown(
-                      items: widget.role,
-                      defaultItem: widget.role[0],
-                      onUpdateValue: updateRole,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomTextField(
-                      hint: 'Address',
-                      controller: _addressController,
-                      maxLines: 3,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomButton(onPressed: () {}, text: 'Sign Up'),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    RichText(
-                      text: TextSpan(
-                        style: const TextStyle(
-                            fontSize: 13.0, color: Colors.black),
-                        children: <TextSpan>[
-                          const TextSpan(text: 'Already have an account? '),
-                          TextSpan(
-                            text: 'Sign In',
-                            style: const TextStyle(
-                              fontSize: 13.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
+                      children: [
+                        CustomTextField(
+                            hint: 'Name', controller: _nameController),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CustomTextField(
+                          hint: 'Mobile Number',
+                          controller: _mobileNumberController,
+                          type: TextInputType.number,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CustomDropDown(
+                            items: widget.genders,
+                            defaultItem: widget.genders[0],
+                            onUpdateValue: (String? val) {}),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CustomDropDown(
+                            items: widget.maritialStatus,
+                            defaultItem: widget.maritialStatus[0],
+                            onUpdateValue: (String? val) {}),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CustomTextField(
+                            hint: 'password', controller: _passwordController),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CustomTextField(
+                            hint: 'confirm password',
+                            controller: _confirmPasswordController),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CustomDropDown(
+                          items: widget.role,
+                          defaultItem: widget.role[0],
+                          onUpdateValue: updateRole,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CustomTextField(
+                          hint: 'Address',
+                          controller: _addressController,
+                          maxLines: 3,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CustomButton(
+                            onPressed: () {
+                              if (_signUpKey.currentState!.validate()) {
                                 Navigator.pushNamed(
                                     context, LoginScreen.routeName);
-                              },
+                              }
+                            },
+                            text: 'Sign Up'),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            style: const TextStyle(
+                                fontSize: 13.0, color: Colors.black),
+                            children: <TextSpan>[
+                              const TextSpan(text: 'Already have an account? '),
+                              TextSpan(
+                                text: 'Sign In',
+                                style: const TextStyle(
+                                  fontSize: 13.0,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.pushNamed(
+                                        context, LoginScreen.routeName);
+                                  },
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    )
-                  ],
-                ))
+                        )
+                      ],
+                    ))
               ],
             ),
           ),

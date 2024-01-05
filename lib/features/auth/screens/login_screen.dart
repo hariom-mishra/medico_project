@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:medico_project/common/bottom_bar.dart';
 import 'package:medico_project/common/custom_button.dart';
 import 'package:medico_project/common/custom_dropdown.dart';
 import 'package:medico_project/common/custom_textfield.dart';
@@ -15,7 +16,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _mobileNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final loginKey = GlobalKey<FormState>();
+  final _loginKey = GlobalKey<FormState>();
 
   final List<String> _users = ['Patient', 'Doctor'];
 
@@ -42,6 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Form(
+              key: _loginKey,
                 child: Column(
               children: [
                 CustomTextField(
@@ -62,7 +64,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                CustomButton(onPressed: () {}, text: 'Sign In'),
+                CustomButton(onPressed: () {
+                  if(_loginKey.currentState!.validate()){
+                    Navigator.pushNamed(
+                                    context, BottomBar.routeName);
+                  }
+                  
+                }, text: 'Sign In'),
                 SizedBox(height: 10,),
                 RichText(
                   text: TextSpan(

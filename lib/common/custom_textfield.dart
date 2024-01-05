@@ -27,6 +27,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
     widget.type != TextInputType.visiblePassword
         ? returnVal = TextFormField(
+            validator: (value){
+              if(value!.isNotEmpty) return 'please enter some value';
+            },
             maxLines: widget.maxLines,
             controller: widget.controller,
             keyboardType: widget.type,

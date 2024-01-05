@@ -65,6 +65,15 @@ flutter:
     - assets/images/water_tap.gif
     - assets/audio/traffic.mp3
     - assets/audio/water.mp3
+    - assets/images/eye.jpg
+    - assets/images/hand.png
+    - assets/images/ear.png
+    - assets/images/sunglasses.png
+    - assets/images/wrist_watch.jpg
+    - assets/images/earphones.png
+    - assets/images/ear_phones.png
+    - assets/images/watch.png
+    - assets/images/eye_sunglasses.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

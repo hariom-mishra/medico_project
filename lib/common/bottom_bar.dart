@@ -5,6 +5,7 @@ import 'package:medico_project/features/chat/screens/chat_screens.dart';
 import 'package:medico_project/features/home/screens/home_screen.dart';
 
 class BottomBar extends StatefulWidget {
+  static const String routeName = '/bottom-bar';
   List<Widget> pages = [
     HomeScreen(),
     AnimationScreen(),

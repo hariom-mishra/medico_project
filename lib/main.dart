@@ -21,13 +21,14 @@ class MyApp extends StatelessWidget {
         colorScheme: theme.colorScheme.copyWith(
           primary: GlobalVariables.primary,
         ),
-        appBarTheme: AppBarTheme(backgroundColor: GlobalVariables.primary, foregroundColor: GlobalVariables.backgroundColor)
+        appBarTheme: const AppBarTheme(backgroundColor: GlobalVariables.primary, foregroundColor: GlobalVariables.backgroundColor)
       ),
       
-      home: BottomBar(),
+      home: SignUpScreen(),
       routes: {
         LoginScreen.routeName: (context)=>LoginScreen(),
         SignUpScreen.routeName: (context)=>SignUpScreen(),
+        BottomBar.routeName: (context)=>BottomBar(),
       },
     );
   }
